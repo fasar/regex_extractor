@@ -1,0 +1,10 @@
+{
+  "extract": {
+    "lipide": ["lipide[^\\d]*(?<lipide>\\d+\\.?\\d*)", "fats[^\\d]*(?<lipide>\\d+\\.?\\d*)"],
+    "glucide": ["glucide[^\\d]*(?<glucide>\\d+\\.?\\d*)", "carbohydrates[^\\d]*(?<glucide>\\d+\\.?\\d*)"],
+    "sucre": ["sucre[^\\d]*(?<sucre>\\d+\\.?\\d*)", "sugars[^\\d]*(?<sucre>\\d+\\.?\\d*)"],
+    "proteine": ["proteine[^\\d]*(?<proteine>\\d+\\.?\\d*)","proteins[^\\d]*(?<proteine>\\d+\\.?\\d*)"]
+  },
+  "charset": "UTF8"
+
+}

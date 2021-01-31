@@ -1,9 +1,15 @@
 {
   "extract": {
-    "lipide": ["lipide[^\\d]*(?<lipide>\\d+\\.?\\d*)", "fats[^\\d]*(?<lipide>\\d+\\.?\\d*)"],
-    "glucide": ["glucide[^\\d]*(?<glucide>\\d+\\.?\\d*)", "carbohydrates[^\\d]*(?<glucide>\\d+\\.?\\d*)"],
-    "sucre": ["sucre[^\\d]*(?<sucre>\\d+\\.?\\d*)", "sugars[^\\d]*(?<sucre>\\d+\\.?\\d*)"],
-    "proteine": ["proteine[^\\d]*(?<proteine>\\d+\\.?\\d*)","proteins[^\\d]*(?<proteine>\\d+\\.?\\d*)"]
+    "plu": [ "^(\\d+)" ],
+    "lib": [ "^\\d+,,([^,]+)" ],
+    "energie": ["(?i)(\\d* ?\\d+(?:,|\\.)?\\d*) ?kj"],
+    "calories": ["(?i)(\\d+(?:,|\\.)?\\d*) ?kcal"],
+    "lipide": ["(?i)Matieres? grasse[^\\d]*(\\d+(?:,|\\.)?\\d*)", "(?i)Graisse[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
+    "glucide": ["(?i)Glucide[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
+    "acides gras satures": ["(?i)gras sature[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
+    "sucre": ["(?i)sucre[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
+    "proteine": ["(?i)Proteine[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
+    "sel": ["(?i)sel[^\\d]*(\\d+(?:,|\\.)?\\d*)"]
   },
   "charset": "UTF8"
 

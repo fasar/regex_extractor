@@ -35,7 +35,7 @@ public class App implements Callable<Integer> {
         JsonNode config = getConfiguration();
         Charset charset = Charset.forName(config.get("charset").asText());
         // Create the Map of the extractors
-        HashMap<String, List<Pattern>> extractors = new HashMap<>();
+        LinkedHashMap<String, List<Pattern>> extractors = new LinkedHashMap<>();
         Iterator<Map.Entry<String, JsonNode>> extractI = config.get("extract").fields();
         while (extractI.hasNext()) {
             Map.Entry<String, JsonNode> next = extractI.next();

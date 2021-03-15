@@ -1,16 +1,17 @@
 {
   "extract": {
     "plu": [ "^(\\d+)" ],
-    "lib": [ "^\\d+,,([^,]+)" ],
+    "lib": [ "^\\d+\t\t([^\\t]+)" ],
     "energie": ["(?i)(\\d* ?\\d+(?:,|\\.)?\\d*) ?kj"],
     "calories": ["(?i)(\\d+(?:,|\\.)?\\d*) ?kcal"],
-    "lipide": ["(?i)Matieres? grasse[^\\d]*(\\d+(?:,|\\.)?\\d*)", "(?i)Graisse[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
-    "glucide": ["(?i)Glucide[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
-    "acides gras satures": ["(?i)gras sature[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
-    "sucre": ["(?i)sucre[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
-    "proteine": ["(?i)Proteine[^\\d]*(\\d+(?:,|\\.)?\\d*)"],
-    "sel": ["(?i)sel[^\\d]*(\\d+(?:,|\\.)?\\d*)"]
+    "glucide": ["(?i)Glucide[^\\d]{0,4}(\\d+(?:,|\\.)?\\d*)"],
+    "lipide": ["(?i)Matieres? ?grasse[^\\d]{0,4}(\\d+(?:,|\\.)?\\d*)", "(?i)Graisse[^\\d]{0,4}(\\d+(?:,|\\.)?\\d*)"],
+    "acides gras satures": ["(?i)gras sature[^\\d]{0,4}(\\d+(?:,|\\.)?\\d*)"],
+    "sucre": ["(?i)sucre[^\\d]{0,4}(\\d+(?:,|\\.)?\\d*)"],
+    "proteine": ["(?i)Proteine[^\\d]{0,4}(\\d+(?:,|\\.)?\\d*)"],
+    "sel": ["(?i)sel[^\\d]{0,4}(\\d+(?:,|\\.)?\\d*)"]
   },
+  "numerical": ["energie", "calorie", "glucide", "lipide", "acides gras satures", "sucre", "proteine", "sel"],
   "charset": "UTF8"
 
 }

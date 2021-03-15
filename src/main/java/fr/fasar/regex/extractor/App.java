@@ -20,13 +20,13 @@ import java.util.regex.Pattern;
         description = "Extract the regex pattern in output.csv")
 public class App implements Callable<Integer> {
 
-    public static final String SEPARATOR = ";";
+    public static final String SEPARATOR = "\t";
     @CommandLine.Parameters(index = "0", description = "The file to apply regex pattern.")
     private File file = null;
 
     @CommandLine.Option(names = {"-o", "--output"}, description = "output file")
     private File outputFile = new File("output.csv");
-    @CommandLine.Option(names = {"-nf", "--not-found"}, description = "not found file")
+    @CommandLine.Option(names = {"-f", "--not-found"}, description = "not found file")
     private File notFoundFile = new File("notfound.txt");
 
 
@@ -52,6 +52,13 @@ public class App implements Callable<Integer> {
             }
 
         }
+        // Numerical fieds
+        ArrayNode numericalJson = ((ArrayNode) config.get("numerical"));
+        List<String> numericals = new ArrayList<>();
+        for (JsonNode jsonNode : numericalJson) {
+            numericals.add(jsonNode.textValue());
+        }
+
         // Extract fields needed to be extracted
         List<String> headers = new ArrayList<>();
         headers.addAll(extractors.keySet());
@@ -81,7 +88,11 @@ public class App implements Callable<Integer> {
                         break;
                     }
                 }
-                sb.append(extracted);
+                if (numericals.contains(headers.get(i))) {
+                    sb.append(extracted.replaceAll(",","."));
+                } else {
+                    sb.append(extracted);
+                }
                 if (StringUtils.isBlank(extracted)) {
                     isFullyExtracted = false;
                 }
